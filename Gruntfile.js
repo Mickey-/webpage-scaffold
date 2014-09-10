@@ -30,12 +30,12 @@ module.exports = function(grunt) {
     coffee: {
       compile: {
         expand: true
-        ,cwd: 'task/'
+        ,cwd: 'tasks/'
         ,src: ['webpage_scaffold.coffee']
-        ,dest: 'task/'
+        ,dest: 'tasks/'
         ,ext: '.js'
       }
-    }
+    },
 
     // Configuration to be run (and then tested).
     webpage_scaffold: {
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks('grunt-contrib-coffee');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
