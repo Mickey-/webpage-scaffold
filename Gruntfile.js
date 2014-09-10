@@ -27,6 +27,15 @@ module.exports = function(grunt) {
     clean: {
       tests: ['tmp']
     },
+    coffee: {
+      compile: {
+        expand: true
+        ,cwd: 'task/'
+        ,src: ['webpage_scaffold.coffee']
+        ,dest: 'task/'
+        ,ext: '.js'
+      }
+    }
 
     // Configuration to be run (and then tested).
     webpage_scaffold: {
