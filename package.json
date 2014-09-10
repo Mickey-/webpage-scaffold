@@ -1,0 +1,42 @@
+{
+  "name": "grunt-webpage-scaffold",
+  "description": "Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Mickey-/webpage-scaffold",
+  "author": {
+    "name": "Mickey-",
+    "email": "itaofe@gmail.com",
+    "url": "http://itaofe.info"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mickey-/webpage-scaffold.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mickey-/webpage-scaffold/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Mickey-/webpage-scaffold/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
