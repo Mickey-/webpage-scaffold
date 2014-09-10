@@ -29,11 +29,11 @@ module.exports = function(grunt) {
     },
     coffee: {
       compile: {
-        expand: true
-        ,cwd: 'tasks/'
-        ,src: ['webpage_scaffold.coffee']
-        ,dest: 'tasks/'
-        ,ext: '.js'
+        expand: true,
+        cwd: 'tasks/',
+        src: ['webpage_scaffold.coffee'],
+        dest: 'tasks/',
+        ext: '.js'
       }
     },
 
@@ -73,8 +73,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-coffee');
 
-  // Whenever the "test" task is run, first clean the "tmp" dir, then run this
-  // plugin's task(s), then test the result.
   grunt.registerTask('test', ['clean', 'webpage_scaffold', 'nodeunit']);
 
   // By default, lint and run all tests.
