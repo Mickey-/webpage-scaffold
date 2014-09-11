@@ -54,6 +54,15 @@ module.exports = function(grunt) {
         files: {
           'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
         }
+      },
+      build: {
+        options: {
+          coffeeDir: 'coffee',
+          jsDir: 'js',
+          styleDir: 'less',
+          demoDir: 'demos',
+          watchPath: 'http://localhost/git/moc/build'
+        }
       }
     },
 
@@ -77,5 +86,8 @@ module.exports = function(grunt) {
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
+
+  //test build new project
+  grunt.registerTask('build', ['webpage_scaffold:build']);
 
 };

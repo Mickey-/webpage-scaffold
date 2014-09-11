@@ -13,6 +13,7 @@ module.exports = (grunt) ->
   grunt.registerMultiTask('webpage_scaffold', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', (pageName, ifNotNeedJs) ->
     require('colors')
     open = require('open')
+    opt = grunt.config.get('options')
     demoRoot = 'http://localhost/git/moc/build/demos/'
     done = @async()
 
