@@ -57,11 +57,12 @@ module.exports = function(grunt) {
       },
       build: {
         options: {
-          coffeeDir: 'coffee/',
-          jsDir: 'js/page/',
-          styleDir: 'less/page/',
-          demoDir: 'demos/',
-          watchPath: 'http://localhost/git/moc/build/demos/'
+          coffee: 'coffee/page/',
+          js: 'js/page/',
+          less: 'less/page/',
+          demo: 'demos/',
+          watchPath: 'http://localhost/git/moc/build/demos/',
+          tplPath: '.tpl'
         }
       }
     },
