@@ -10,7 +10,7 @@
 (function() {
   'use strict';
   module.exports = function(g) {
-    return g.registerMultiTask('webpage_scaffold', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', function(pageName, ifNotNeedJs) {
+    return g.registerTask('webpage_scaffold', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', function(pageName, ifNotNeedJs) {
       var done, files, gruntIns, open, opt, sc, scriptType, styleType, tplBuffer, write, writeError, _ref, _ref1;
       require('colors');
       open = require('open');
