@@ -21,12 +21,13 @@
         less: 'less/page/',
         sass: false,
         demo: 'demos/',
-        watchPath: 'http://localhost/git/moc/build/demos/'
+        watchPath: 'http://localhost/git/moc/build/demos/',
+        tplPath: '.tpl'
       });
       if (!pageName) {
         g.fail.warn('请指定新项目模块名称,如： ' + 'grunt init:modname'.inverse + '。注意默认会在新demo文件' + 'modname.html'.underline + '里引入' + 'modname.js'.cyan + '和' + 'modname.css'.cyan);
       }
-      tplBuffer = g.file.read('./demos/.tpl.html');
+      tplBuffer = g.file.read(opt.tplPath);
       tplBuffer = tplBuffer.replace(/#{pagename}/g, pageName);
       write = g.file.write;
       styleType = (_ref = opt.sass) != null ? _ref : {
