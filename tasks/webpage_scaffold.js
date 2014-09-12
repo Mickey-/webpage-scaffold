@@ -39,23 +39,20 @@
       files = [
         {
           dest: opt.demo + pageName + '.html',
-          content: tplBuffer,
-          okLog: files.html.cyan + '生成成功！'
+          content: tplBuffer
         }, {
           dest: opt[styleType] + pageName + '.' + styleType,
-          content: '.' + pageName + ' {\r\n\r\n}',
-          okLog: files.less.cyan + '生成成功！'
+          content: '.' + pageName + ' {\r\n\r\n}'
         }, {
           dest: opt[scriptType] + pageName + '.' + scriptType,
           content: '',
-          okLog: files.less.cyan + '生成成功！',
           ifNotNeedJs: ifNotNeedJs
         }
       ];
       files.forEach(function(v, k) {
         if (v.ifNotNeedJs === void 0 || !v.ifNotNeedJs) {
           if (write(v.dest, v.content)) {
-            return g.log.ok(v.okLog);
+            return g.log.ok(v.dest + '生成成功！');
           } else {
             return writeError();
           }

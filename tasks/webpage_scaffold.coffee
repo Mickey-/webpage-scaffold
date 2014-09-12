@@ -38,15 +38,12 @@ module.exports = (g) ->
     files = [
       dest: opt.demo + pageName + '.html'
       content: tplBuffer
-      okLog: files.html.cyan + '生成成功！'
     ,
       dest: opt[styleType] + pageName + '.' + styleType
       content: '.' + pageName + ' {\r\n\r\n}'
-      okLog: files.less.cyan + '生成成功！'
     ,
       dest: opt[scriptType] + pageName + '.' + scriptType
       content: ''
-      okLog: files.less.cyan + '生成成功！'
       #新模块是否需要js逻辑
       ifNotNeedJs: ifNotNeedJs
     ]
@@ -55,7 +52,7 @@ module.exports = (g) ->
     files.forEach((v, k) ->
       if v.ifNotNeedJs == undefined || !v.ifNotNeedJs
         if write(v.dest, v.content)
-          g.log.ok(v.okLog)
+          g.log.ok(v.dest + '生成成功！')
         else
           writeError()
     )
