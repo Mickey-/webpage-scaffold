@@ -10,11 +10,12 @@
 
 module.exports = (g) ->
 
-  g.registerTask('webpage_scaffold', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', (pageName, ifNotNeedJs) ->
+  g.registerTask('webpage_scaffold', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', () ->
     require('colors')
     open = require('open')
     done = @async()
 
+    #默认配置，会被gruntfile覆盖
     opt = this.options(
       coffee: false
       js: 'js/page/'
@@ -25,14 +26,21 @@ module.exports = (g) ->
       tplPath: '.tpl'
     )
 
+    console.log pageName
+    console.log this
+    return
+
+
+    pageName = this.args[0]
+    ifNotNeedJs = this.args[1]
     if !pageName
       g.fail.warn('请指定新项目模块名称,如： ' + 'grunt init:modname'.inverse + '。注意默认会在新demo文件' + 'modname.html'.underline + '里引入' + 'modname.js'.cyan + '和' + 'modname.css'.cyan)
 
     tplBuffer = g.file.read(opt.tplPath)
     tplBuffer = tplBuffer.replace(/#{pagename}/g, pageName)
     write = g.file.write
-    styleType = (opt.sass ? 'sass' : 'less')
-    scriptType = (opt.coffee ? 'coffee' : 'js')
+    styleType = if opt.sass then 'sass' else 'less'
+    scriptType = if opt.coffee then 'coffee' else 'js'
 
     #默认内容
     files = [

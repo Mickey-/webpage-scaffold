@@ -39,6 +39,7 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     webpage_scaffold: {
+    /*
       default_options: {
         options: {
         },
@@ -55,15 +56,14 @@ module.exports = function(grunt) {
           'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
         }
       },
-      build: {
-        options: {
-          coffee: 'coffee/page/',
-          js: 'js/page/',
-          less: 'less/page/',
-          demo: 'demos/',
-          watchPath: 'http://localhost/git/moc/build/demos/',
-          tplPath: '.tpl'
-        }
+      */
+      options: {
+        coffee: 'coffee/page/',
+        js: 'js/page/',
+        less: 'less/page/',
+        demo: 'demos/',
+        watchPath: 'http://localhost/git/moc/build/demos/',
+        tplPath: '.tpl'
       }
     },
 
@@ -89,6 +89,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'test']);
 
   //test build new project
-  grunt.registerTask('build', ['webpage_scaffold:build']);
+  grunt.registerTask('build', ['webpage_scaffold']);
 
 };
