@@ -10,7 +10,7 @@
 
 module.exports = (g) ->
 
-  g.registerTask('webpage_scaffold', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', () ->
+  g.registerTask('init', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', () ->
     require('colors')
     open = require('open')
     done = @async()
@@ -26,12 +26,9 @@ module.exports = (g) ->
       tplPath: '.tpl'
     )
 
-    console.log pageName
-    console.log this
-    return
-
-
+    #新模块名，如果叫xxx，则grunt webpage_scaffold:xxx
     pageName = this.args[0]
+    #是否不需要引入js，如果不需要js，则grunt webpage_scaffold:xxx:true
     ifNotNeedJs = this.args[1]
     if !pageName
       g.fail.warn('请指定新项目模块名称,如： ' + 'grunt init:modname'.inverse + '。注意默认会在新demo文件' + 'modname.html'.underline + '里引入' + 'modname.js'.cyan + '和' + 'modname.css'.cyan)

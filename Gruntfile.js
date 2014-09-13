@@ -58,9 +58,10 @@ module.exports = function(grunt) {
       },
       */
       options: {
-        coffee: 'coffee/page/',
+        //coffee: 'coffee/page/',
         js: 'js/page/',
         less: 'less/page/',
+        //sass: 'sass/page/',
         demo: 'demos/',
         watchPath: 'http://localhost/git/moc/build/demos/',
         tplPath: '.tpl'

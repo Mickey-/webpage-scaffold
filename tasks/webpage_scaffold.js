@@ -10,7 +10,7 @@
 (function() {
   'use strict';
   module.exports = function(g) {
-    return g.registerTask('webpage_scaffold', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', function() {
+    return g.registerTask('init', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', function() {
       var done, files, gruntIns, ifNotNeedJs, open, opt, pageName, sc, scriptType, styleType, tplBuffer, write, writeError;
       require('colors');
       open = require('open');
@@ -24,9 +24,6 @@
         watchPath: 'http://localhost/git/moc/build/demos/',
         tplPath: '.tpl'
       });
-      console.log(pageName);
-      console.log(this);
-      return;
       pageName = this.args[0];
       ifNotNeedJs = this.args[1];
       if (!pageName) {
