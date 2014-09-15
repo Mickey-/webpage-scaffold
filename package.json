@@ -1,7 +1,7 @@
 {
   "name": "grunt-webpage-scaffold",
   "description": "Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding directly : )",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/Mickey-/webpage-scaffold",
   "author": {
     "name": "Mickey-",
