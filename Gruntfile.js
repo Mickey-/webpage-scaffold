@@ -89,7 +89,5 @@ module.exports = function(grunt) {
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
 
-  //test build new project
-  grunt.registerTask('build', ['webpage_scaffold']);
 
 };
