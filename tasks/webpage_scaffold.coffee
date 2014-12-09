@@ -20,7 +20,7 @@ module.exports = (g) ->
       coffee: false
       js: 'js/page/'
       less: 'less/page/'
-      sass: false
+      lessCommonCode: ''
       demo: 'demos/'
       watchPath: 'http://localhost/git/moc/build/demos/'
       tplPath: '.tpl'
@@ -36,7 +36,7 @@ module.exports = (g) ->
     tplBuffer = g.file.read(opt.tplPath)
     tplBuffer = tplBuffer.replace(/#{pagename}/g, pageName)
     write = g.file.write
-    styleType = if opt.sass then 'sass' else 'less'
+    styleType = 'less'
     scriptType = if opt.coffee then 'coffee' else 'js'
 
     #默认内容
@@ -45,7 +45,7 @@ module.exports = (g) ->
       content: tplBuffer
     ,
       dest: opt[styleType] + pageName + '.' + styleType
-      content: '.' + pageName + ' {\r\n\r\n}'
+      content: opt.lessCommonCode + '\r\n.' + pageName + ' {\r\n\r\n}'
     ,
       dest: opt[scriptType] + pageName + '.' + scriptType
       content: ''
