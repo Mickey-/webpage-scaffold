@@ -5,8 +5,6 @@
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
-
 ```shell
 npm install grunt-webpage-scaffold --save-dev
 ```
@@ -20,70 +18,79 @@ grunt.loadNpmTasks('grunt-webpage-scaffold');
 ## The "webpage_scaffold" task
 
 ### Overview
-In your project's Gruntfile, add a section named `webpage_scaffold` to the data object passed into `grunt.initConfig()`.
 
-```js
-grunt.initConfig({
-  webpage_scaffold: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-});
-```
+In Gruntfile, you need some config ,for example:
+
+    module.exports = (grunt) ->
+      grunt.initConfig
+        webpage:
+          options:
+            #coffee: 'coffee/page/'
+            js: 'js/page/'
+            less: 'less/page/'
+            lessCommonCode: '@import "../var";'
+            demo: 'demos/'
+            demoShowPath: 'http://localhost/git/moc/build/demos/'
+            tplPath: '.tpl'
 
 ### Options
 
-#### options.separator
+#### options.js
 Type: `String`
-Default value: `',  '`
+Default value: `'js/page/'`
 
-A string value that is used to do something with whatever.
+A string value that is used to determine where to generate js file. __It's 'mutually exclusive with options.coffee__
 
-#### options.punctuation
+#### options.coffee
 Type: `String`
-Default value: `'.'`
+Default value: `''`
 
-A string value that is used to do something else with whatever else.
+A string value that is used to determine where to generate coffee file. __It's 'mutually exclusive with options.js__
 
-### Usage Examples
+#### options.less
+Type: `String`
+Default value: `'less/page/'`
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+A string value that is used to determine where to generate less file.
 
-```js
-grunt.initConfig({
-  webpage_scaffold: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
+#### options.lessCommonCode
+Type: `String`
+Default value: `''`
+
+A string value that is used to write __something common__ into less file at the top.
+
+#### options.demo
+Type: `String`
+Default value: `'demo/'`
+
+A string value that is used to determine where to generate html demo file.
+
+#### options.demoShowPath
+Type: `String`
+Default value: `'./build/demos/'`
+
+A string value that is used to determine what url to open in browser for preview.
+
+#### options.tplPath
+Type: `String`
+Default value: `'.tpl'`
+
+A string value that is used to determine which template file to use for generate demo file..
+
+### Default Options
+
 ```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  webpage_scaffold: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
+    opt = this.options(
+      coffee: false
+      js: 'js/page/'
+      less: 'less/page/'
+      lessCommonCode: ''
+      demo: 'demos/'
+      demoShowPath: './build/demos/'
+      tplPath: '.tpl'
+    )
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
-## Release History
-_(Nothing yet)_
+welcome!

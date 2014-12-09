@@ -17,12 +17,12 @@ module.exports = (g) ->
 
     #默认配置，会被gruntfile覆盖
     opt = this.options(
-      coffee: false
+      coffee: ''
       js: 'js/page/'
       less: 'less/page/'
       lessCommonCode: ''
       demo: 'demos/'
-      watchPath: 'http://localhost/git/moc/build/demos/'
+      demoShowPath: './build/demos/'
       tplPath: '.tpl'
     )
 
@@ -70,7 +70,7 @@ module.exports = (g) ->
           gruntIns.ok()
           console.log('\n进入开发模式'.yellow)
           g.task.run(['watch'])
-          open(opt.watchPath + pageName + '.html')
+          open(opt.demoShowPath + pageName + '.html')
           done(true)
     )
 
