@@ -10,18 +10,18 @@
 (function() {
   'use strict';
   module.exports = function(g) {
-    return g.registerTask('init', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', function() {
+    return g.registerTask('webpage', 'Help build the new Webpage project, static resource automatic generation of page demo file and dependence (optional without JS file). Once to initialize grunt, open the default browser to observe the compiled Demo. At the same time will automatically start the Livereload pattern of development, we can start coding: )', function() {
       var done, files, gruntIns, ifNotNeedJs, open, opt, pageName, sc, scriptType, styleType, tplBuffer, write, writeError;
       require('colors');
       open = require('open');
       done = this.async();
       opt = this.options({
-        coffee: false,
+        coffee: '',
         js: 'js/page/',
         less: 'less/page/',
-        sass: false,
+        lessCommonCode: '',
         demo: 'demos/',
-        watchPath: 'http://localhost/git/moc/build/demos/',
+        demoShowPath: './build/demos/',
         tplPath: '.tpl'
       });
       pageName = this.args[0];
@@ -32,7 +32,7 @@
       tplBuffer = g.file.read(opt.tplPath);
       tplBuffer = tplBuffer.replace(/#{pagename}/g, pageName);
       write = g.file.write;
-      styleType = opt.sass ? 'sass' : 'less';
+      styleType = 'less';
       scriptType = opt.coffee ? 'coffee' : 'js';
       files = [
         {
@@ -40,7 +40,7 @@
           content: tplBuffer
         }, {
           dest: opt[styleType] + pageName + '.' + styleType,
-          content: '.' + pageName + ' {\r\n\r\n}'
+          content: opt.lessCommonCode + '\r\n.' + pageName + ' {\r\n\r\n}'
         }, {
           dest: opt[scriptType] + pageName + '.' + scriptType,
           content: '',
@@ -64,7 +64,7 @@
           gruntIns.ok();
           console.log('\n进入开发模式'.yellow);
           g.task.run(['watch']);
-          open(opt.watchPath + pageName + '.html');
+          open(opt.demoShowPath + pageName + '.html');
           return done(true);
         }
       });
