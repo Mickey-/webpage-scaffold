@@ -43,7 +43,7 @@
           content: opt.lessCommonCode + '\r\n.' + pageName + ' {\r\n\r\n}'
         }, {
           dest: opt[scriptType] + pageName + '.' + scriptType,
-          content: '',
+          content: '"use strict";\r\n',
           ifNotNeedJs: ifNotNeedJs
         }
       ];

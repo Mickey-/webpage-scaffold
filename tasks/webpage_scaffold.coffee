@@ -48,7 +48,7 @@ module.exports = (g) ->
       content: opt.lessCommonCode + '\r\n.' + pageName + ' {\r\n\r\n}'
     ,
       dest: opt[scriptType] + pageName + '.' + scriptType
-      content: ''
+      content: '"use strict";\r\n'
       #新模块是否需要js逻辑
       ifNotNeedJs: ifNotNeedJs
     ]
